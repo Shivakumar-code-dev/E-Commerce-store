@@ -75,6 +75,7 @@ function resolveImage(path) {
     : 'https://e-commerce-store-lte0.onrender.com';
 
 return `${BASE_URL}${path}`;
+}
 
 function formatCurrency(amount) {
   return '₹' + Number(amount || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 });
