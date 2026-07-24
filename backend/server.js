@@ -30,7 +30,8 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-  'http://10.23.57.213:3000'
+  'http://10.23.57.213:3000',
+  'https://e-commerce-frontend-8ctz.onrender.com'
 ];
 
 app.use(

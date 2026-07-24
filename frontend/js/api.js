@@ -2,7 +2,10 @@
    API Client — wraps fetch() calls to the Express backend
    ========================================================= */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000/api'
+    : 'https://e-commerce-store-lte0.onrender.com/api';
 
 const Api = {
   getToken() {
@@ -66,8 +69,12 @@ const Api = {
 function resolveImage(path) {
   if (!path) return 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop';
   if (path.startsWith('http')) return path;
-  return `http://localhost:5000${path}`;
-}
+  const BASE_URL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'https://e-commerce-store-lte0.onrender.com';
+
+return `${BASE_URL}${path}`;
 
 function formatCurrency(amount) {
   return '₹' + Number(amount || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 });
